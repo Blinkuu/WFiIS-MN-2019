@@ -8,9 +8,6 @@
 
 int main() {
 
-    //double *b, *c, *d, *u, *l, *y, *v;
-    //b = new double[N + 1];
-
     double b = 2.0;
     double a = 1.0/2.0;
     double h = 2.0 * b / (N - 1);
