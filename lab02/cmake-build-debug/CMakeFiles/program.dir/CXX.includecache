@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/blinku/CLionProjects/numerical_methods/lab02/main.cpp
+iostream
+-
+iomanip
+-
+fstream
+-
+cmath
+-
+array
+-
+

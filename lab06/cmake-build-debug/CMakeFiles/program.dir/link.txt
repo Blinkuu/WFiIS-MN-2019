@@ -1,0 +1,1 @@
+/usr/bin/c++  -Wall -g -g  -rdynamic CMakeFiles/program.dir/main.cpp.o  -o program -lgsl -lgslcblas -lm 
