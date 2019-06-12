@@ -4,8 +4,15 @@
 #include <array>
 #include <iomanip>
 #include <functional>
+<<<<<<< HEAD
 
 #define MAX_ITER 20
+=======
+#include <array>
+
+#define MAX_ITER 20
+#define N 1000
+>>>>>>> 7d6ab7ed33b68910595c18ac5ec1d0589ce930fe
 
 void newton(std::function<double(double)> func, std::function<double(double)> func_der, double real_zero, double start);
 void metoda_siecznych(std::function<double(double)> func, std::function<double(double)> func_der, double real_zero, double start1, double start2);
@@ -19,6 +26,7 @@ double g_derivative_function(double x);
 double epsilon(double x1, double x2);
 double p(double e0, double e1, double e2);
 
+<<<<<<< HEAD
 int main()
 {
 
@@ -31,6 +39,42 @@ int main()
 	//std::cout << "\n\n";
 	//metoda_siecznych(g_function, g_derivative_function, -3.28427753730695, -20.0, -20.1);
 	//std::cout << "\n\n";
+=======
+std::array<double, N> linspace(double start, double finish, double offset = 0.0);
+
+int main()
+{
+	//newton(f_function, f_derivative_function, 1.0, 3.0);
+	//std::cout << "\n\n";
+	//metoda_siecznych(f_function, f_derivative_function, 1.0, 3.0, 3.01);
+	//std::cout << "\n\n";
+
+	newton(g_function, g_derivative_function, -3.28427753730695, -20.0);
+	std::cout << "\n\n";
+	metoda_siecznych(g_function, g_derivative_function, -3.28427753730695, -20.0, -20.1);
+	std::cout << "\n\n";
+
+    std::array<double, N> lin = linspace(-4, 4, 0.5);
+    std::array<double, N> f_values = {0};
+    std::array<double, N> d_values = {0};
+
+    for(int i = 0; i < N; ++i)
+    {
+        f_values[i] = g_function(lin[i]);
+        d_values[i] = g_derivative_function(lin[i]);
+    }
+
+    std::ofstream file;
+    file.open("f.txt");
+
+    for(int i = 0; i < N; ++i)
+    {
+        file << lin[i] << "\t" << f_values[i] << "\t" << d_values[i] << std::endl;
+        std::cout << lin[i] << std::endl;
+    }
+
+    file.close();
+>>>>>>> 7d6ab7ed33b68910595c18ac5ec1d0589ce930fe
 
 	return 0;
 }
@@ -114,4 +158,19 @@ double epsilon(double x1, double x2)
 double p(double e0, double e1, double e2) 
 {
 	return log(e1/e2)/log(e0/e1);
+<<<<<<< HEAD
+=======
+}
+
+std::array<double, N> linspace(double start, double finish, double offset)
+{
+    std::array<double, N> result = {0};
+
+    double step = fabs(finish - start) / N;
+
+    for(int i = 0; i < N; ++i)
+        result[i] = start + i * step;
+
+    return result;
+>>>>>>> 7d6ab7ed33b68910595c18ac5ec1d0589ce930fe
 }

@@ -4,7 +4,11 @@
 #include <cmath>
 #include <array>
 
+<<<<<<< HEAD
 #define N 50
+=======
+#define N 500
+>>>>>>> 7d6ab7ed33b68910595c18ac5ec1d0589ce930fe
 
 int main() {
 

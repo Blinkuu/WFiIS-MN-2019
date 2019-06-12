@@ -2,7 +2,11 @@
 #include <array>
 #include <cmath>
 #include <fstream>
+<<<<<<< HEAD
 
+=======
+#include <chrono>
+>>>>>>> 7d6ab7ed33b68910595c18ac5ec1d0589ce930fe
 
 #define N 1000
 #define m 5
@@ -38,11 +42,22 @@ int main() {
             ABS(i - j) <= m ? A[i][j] = 1.0 / (1.0 + ABS(i - j)) : A[i][j] = 0.0;
     }
 
+<<<<<<< HEAD
+=======
+    // przyklad b
+    //x_vec[0] = 1.0;
+
+>>>>>>> 7d6ab7ed33b68910595c18ac5ec1d0589ce930fe
     std::ofstream file;
     file.open("data.txt");
     std::ofstream file2;
     file2.open("data2.txt");
 
+<<<<<<< HEAD
+=======
+    auto t1 = std::chrono::high_resolution_clock::now();
+
+>>>>>>> 7d6ab7ed33b68910595c18ac5ec1d0589ce930fe
     unsigned k = 0;
     double e_norm;
     double x_norm;
@@ -59,6 +74,14 @@ int main() {
         file2 << k++ << " " << x_norm << "\n";
     } while (e_norm > 1.E-6);
 
+<<<<<<< HEAD
+=======
+    auto t2 = std::chrono::high_resolution_clock::now();
+    std::cout <<"It took me: " << std::chrono::duration_cast<std::chrono::duration<double>>(t2 - t1).count() << " s\n\n";
+
+    std::cout << k;
+
+>>>>>>> 7d6ab7ed33b68910595c18ac5ec1d0589ce930fe
     file.close();
     file2.close();
 

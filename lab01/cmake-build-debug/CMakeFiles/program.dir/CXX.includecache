@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/blinku/CLionProjects/numerical_methods/lab01/main.cpp
+iostream
+-
+iomanip
+-
+fstream
+-
+gsl/gsl_math.h
+/home/blinku/CLionProjects/numerical_methods/lab01/gsl/gsl_math.h
+gsl/gsl_linalg.h
+/home/blinku/CLionProjects/numerical_methods/lab01/gsl/gsl_linalg.h
+

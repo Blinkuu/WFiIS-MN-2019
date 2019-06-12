@@ -8,7 +8,7 @@
 #include <gsl/gsl_linalg.h>
 #include <gsl/gsl_math.h>
 
-#define NODE_NR 5
+#define NODE_NR 10
 #define N 1000
 
 #define NODE_VECTOR std::array<double, NODE_NR>
@@ -64,17 +64,23 @@ int main() {
 
     gsl_vector* m = wyznacz_M(nodes, nodes_values, h, fun_second_der(nodes[0]), fun_second_der(nodes[NODE_NR - 1]));
 
+    std::ofstream wezly;
+    wezly.open("wezly.txt");
+    for(auto i = 0; i < NODE_NR; ++i) {
+        wezly << nodes[i] << "\t" << fun_second_der(nodes[i]) << "\t" << gsl_vector_get(m, i) << std::endl;
+        std::cout << fun_second_der(nodes[i]) << "\t" << gsl_vector_get(m, i) << "\t" << fabs(fun_second_der(nodes[i]) - gsl_vector_get(m, i)) << std::endl;
+    }
+    wezly.close();
+
     for(auto i = 0; i < N; ++i) {
         inter_fun_values[i] = wyznacz_Sx(nodes, nodes_values, m, NODE_NR, net[i], h);
     }
 
     std::ofstream plik;
     plik.open("wyniki.txt");
-
     for(int i = 0; i < N; ++i) {
         plik << net[i] << "\t" << inter_fun_values[i] << "\t" << fun_values[i] << std::endl;
     }
-
     plik.close();
 
     gsl_vector_free(m);
